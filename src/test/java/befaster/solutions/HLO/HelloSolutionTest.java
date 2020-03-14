@@ -20,6 +20,6 @@ public class HelloSolutionTest {
 
     @Test
     public void should_return_simple_hello_message() {
-        assertThat(helloSolution.hello("Fred"), is("Hello"));
+        assertThat(helloSolution.hello("Fred"), is("Hello, World!"));
     }
 }
