@@ -67,4 +67,9 @@ public class CheckoutSolutionTest {
     public void should_checkout_for_skus_with_offers_and_no_offers() {
         assertThat(checkoutSolution.checkout("A,A,A,D"), is(145));
     }
+
+    @Test
+    public void should_checkout_for_skus_with_multiple_offers() {
+        assertThat(checkoutSolution.checkout("A,A,A,B,B"), is(175));
+    }
 }
