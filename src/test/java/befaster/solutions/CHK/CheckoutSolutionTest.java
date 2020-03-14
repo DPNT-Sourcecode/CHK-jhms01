@@ -52,4 +52,14 @@ public class CheckoutSolutionTest {
     public void should_checkout_for_multiple_skus_of_same_type_no_offers() {
         assertThat(checkoutSolution.checkout("D, D"), is(30));
     }
+
+    @Test
+    public void should_checkout_for_multiple_skus_of_different_type_no_offers() {
+        assertThat(checkoutSolution.checkout("C, D"), is(35));
+    }
+
+    @Test
+    public void should_checkout_for_skus_with_offers() {
+        assertThat(checkoutSolution.checkout("A,A,A"), is(130));
+    }
 }
