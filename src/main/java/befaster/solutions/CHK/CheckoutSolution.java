@@ -1,48 +1,31 @@
 package befaster.solutions.CHK;
 
+import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Objects;
 
 public class CheckoutSolution {
-    private Map<String, Product> skuPrices = new Hashtable<>();
+    private Map<String, Integer> skuPrices = new Hashtable<>();
 
     public CheckoutSolution() {
-        skuPrices.put("A", new Product("A", 50).offer(3, 130));
-        skuPrices.put("B", new Product("B", 30).offer(2, 45));
-        skuPrices.put("C", new Product("C", 20));
-        skuPrices.put("D", new Product("D", 15));
+        skuPrices.put("A", 50);
+        skuPrices.put("B", 45);
+        skuPrices.put("C", 20);
+        skuPrices.put("D", 15);
     }
 
     public Integer checkout(String skus) {
-        if (Objects.isNull(skus) || skus.equalsIgnoreCase("-")) {
+//        BigInteger.valueOf(0l)
+        if (Objects.isNull(skus) || skus.length() == 0) {
             return -1;
         }
 
-        if (skus.equalsIgnoreCase("")) {
-            return 0;
-        }
+//        Arrays.asList(skus.split(",")).forEach(sku->{
+//
+//        });
 
-        Map<String, Ordered> ordered = new Hashtable<>();
-        String[] skusList = skus.split("(?!^)");
-
-        if (skusList.length == 1 && !skuPrices.containsKey(skusList[0])) {
-            return -1;
-        }
-
-        for (String sku : skusList) {
-            if (!ordered.containsKey(sku.trim())) {
-                ordered.put(sku.trim(), new Ordered(sku.trim()));
-            }
-            Ordered currentOrder = ordered.get(sku.trim());
-            currentOrder.add();
-        }
-
-        return ordered.values().stream().mapToInt(o -> {
-            Product product = skuPrices.getOrDefault(o.getSku(), new Product("", 0));
-            return product.calculateProductTotal(o.getOrdered());
-        }).sum();
+        return skuPrices.getOrDefault(skus, -1);
     }
 }
-
-
