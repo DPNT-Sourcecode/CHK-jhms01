@@ -23,6 +23,7 @@ public class CheckoutSolution {
     }
 
     public Integer checkout(String skus) {
+        Map<String, Ordered> ordered = new Hashtable<>();
         int total = 0;
         if (Objects.isNull(skus) || skus.length() == 0) {
             return -1;
@@ -30,12 +31,20 @@ public class CheckoutSolution {
 
         String[] skusList = skus.split(",");
         for (String sku : skusList) {
-            total += skuPrices.getOrDefault(sku.trim(), new Product("", 0)).getPrice();
+            Ordered currentOrder = ordered.getOrDefault(sku.trim(), new Ordered(sku.trim()));
+            currentOrder.add();
+            ordered.replace(sku.trim(), currentOrder);
+        }
+
+        for (Ordered order : ordered.values()) {
+            Product product = skuPrices.getOrDefault(order.getSku(), new Product("", 0));
+            total += product.getPrice();
         }
 
         return total;
     }
 }
+
 
 
 
