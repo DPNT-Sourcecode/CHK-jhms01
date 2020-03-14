@@ -7,7 +7,3 @@ public class SumSolution {
         return x + y;
     }
 }
-
-
-
-
