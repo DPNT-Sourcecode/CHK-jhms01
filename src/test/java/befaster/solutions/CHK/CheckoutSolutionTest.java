@@ -47,4 +47,9 @@ public class CheckoutSolutionTest {
     public void should_checkout_for_sku_a() {
         assertThat(checkoutSolution.checkout("A"), is(50));
     }
+
+    @Test
+    public void should_checkout_for_multiple_skus_of_same_type_no_offers() {
+        assertThat(checkoutSolution.checkout("D, D"), is(30));
+    }
 }

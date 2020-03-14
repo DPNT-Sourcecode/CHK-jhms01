@@ -18,7 +18,7 @@ public class CheckoutSolution {
         if (Objects.isNull(skus) || skus.length() == 0) {
             return -1;
         }
-        
+
         return skuPrices.getOrDefault(skus, -1);
     }
 }
