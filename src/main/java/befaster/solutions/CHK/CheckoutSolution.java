@@ -24,7 +24,7 @@ public class CheckoutSolution {
         }
 
         Map<String, Ordered> ordered = new Hashtable<>();
-        String[] skusList = skus.split(",");
+        String[] skusList = skus.split("(?!^)");
 
         if (skusList.length == 1 && !skuPrices.containsKey(skusList[0])) {
             return -1;
@@ -44,4 +44,5 @@ public class CheckoutSolution {
         }).sum();
     }
 }
+
 
