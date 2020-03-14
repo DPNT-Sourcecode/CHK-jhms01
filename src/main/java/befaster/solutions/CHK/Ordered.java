@@ -32,4 +32,3 @@ public class Ordered {
         this.ordered += 1;
     }
 }
-
