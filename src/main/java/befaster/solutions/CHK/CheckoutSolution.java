@@ -1,5 +1,7 @@
 package befaster.solutions.CHK;
 
+import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Objects;
@@ -15,10 +17,16 @@ public class CheckoutSolution {
     }
 
     public Integer checkout(String skus) {
+//        BigInteger.valueOf(0l)
         if (Objects.isNull(skus) || skus.length() == 0) {
             return -1;
         }
 
+//        Arrays.asList(skus.split(",")).forEach(sku->{
+//
+//        });
+
         return skuPrices.getOrDefault(skus, -1);
     }
 }
+
