@@ -92,4 +92,9 @@ public class CheckoutSolutionTest {
     public void should_checkout_for_skus_with_multiple_offers() {
         assertThat(checkoutSolution.checkout("AAABB"), is(175));
     }
+
+    @Test
+    public void should_checkout_for_all_skus() {
+        assertThat(checkoutSolution.checkout("ABCD"), is(115));
+    }
 }
