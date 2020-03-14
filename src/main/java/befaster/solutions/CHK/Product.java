@@ -33,15 +33,13 @@ public class Product {
         this.price = price;
     }
 
-    public Map<Integer, Integer> getOffers() {
-        return offers;
-    }
-
-    public void setOffers(Map<Integer, Integer> offers) {
-        this.offers = offers;
+    public Product offer(int quantity, int discountPrice) {
+        this.offers.put(quantity, discountPrice);
+        return this;
     }
 
     public int calculateProductTotal(int ordered) {
-        return getOffers().getOrDefault(ordered, ordered * price);
+        return offers.getOrDefault(ordered, ordered * price);
     }
 }
+
