@@ -37,4 +37,14 @@ public class CheckoutSolutionTest {
     public void should_checkout_for_sku_c() {
         assertThat(checkoutSolution.checkout("C"), is(20));
     }
+
+    @Test
+    public void should_checkout_for_sku_b() {
+        assertThat(checkoutSolution.checkout("B"), is(45));
+    }
+
+    @Test
+    public void should_checkout_for_sku_a() {
+        assertThat(checkoutSolution.checkout("A"), is(50));
+    }
 }
