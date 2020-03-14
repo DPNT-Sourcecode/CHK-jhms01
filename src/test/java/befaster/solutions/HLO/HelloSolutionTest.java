@@ -19,7 +19,7 @@ public class HelloSolutionTest {
     }
 
     @Test
-    public void should_return_simple_hello_message() {
-        assertThat(helloSolution.hello("Fred"), is("Hello, World!"));
+    public void should_return_simple_hello_message_with_a_name() {
+        assertThat(helloSolution.hello("Fred"), is("Hello, Fred!"));
     }
 }
