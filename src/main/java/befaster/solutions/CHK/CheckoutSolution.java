@@ -29,4 +29,3 @@ public class CheckoutSolution {
         return skuPrices.getOrDefault(skus, -1);
     }
 }
-
