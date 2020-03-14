@@ -25,7 +25,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_return_negative_for_blank_skus() {
-        assertThat(checkoutSolution.checkout(""), is(0));
+        assertThat(checkoutSolution.checkout(""), is(-1));
     }
 
     @Test
@@ -88,5 +88,3 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("A,A,A,B,B"), is(175));
     }
 }
-
-
