@@ -24,6 +24,12 @@ public class SumSolutionTest {
     public void should_fail_validation_if_first_arg_is_over_100() {
         assertThat(sum.compute(101, 1), equalTo(2));
     }
+
+    @Test(expected = ValidationException.class)
+    public void should_fail_validation_if_first_arg_is_less_than_0() {
+        assertThat(sum.compute(-1, 1), equalTo(2));
+    }
 }
+
 
 
