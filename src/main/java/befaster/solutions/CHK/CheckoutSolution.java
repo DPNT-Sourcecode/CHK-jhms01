@@ -19,6 +19,10 @@ public class CheckoutSolution {
             return -1;
         }
 
+        if (skus.equalsIgnoreCase("")) {
+            return 0;
+        }
+
         Map<String, Ordered> ordered = new Hashtable<>();
         String[] skusList = skus.split(",");
 
@@ -40,3 +44,4 @@ public class CheckoutSolution {
         }).sum();
     }
 }
+
