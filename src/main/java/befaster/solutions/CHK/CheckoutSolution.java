@@ -22,7 +22,7 @@ public class CheckoutSolution {
 
         String[] skusList = skus.split(",");
         for (String sku : skusList) {
-            total += skuPrices.getOrDefault(sku, 0);
+            total += skuPrices.getOrDefault(sku.trim(), 0);
         }
 
         return total;
