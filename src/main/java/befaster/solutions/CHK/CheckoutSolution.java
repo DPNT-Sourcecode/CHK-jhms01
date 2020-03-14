@@ -8,6 +8,12 @@ public class CheckoutSolution {
             return -1;
         }
 
+        if (skus.equalsIgnoreCase("D")) {
+            return 15;
+        } else if (skus.equalsIgnoreCase("c")) {
+            return 20;
+        }
+
         return 0;
     }
 }
