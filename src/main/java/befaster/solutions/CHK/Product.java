@@ -41,4 +41,3 @@ public class Product {
         this.offers = offers;
     }
 }
-

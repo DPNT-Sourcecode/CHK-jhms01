@@ -31,23 +31,18 @@ public class CheckoutSolution {
 
         String[] skusList = skus.split(",");
         for (String sku : skusList) {
-            Ordered currentOrder = ordered.getOrDefault(sku.trim(), new Ordered(sku.trim()));
+            if (!ordered.containsKey(sku.trim())) {
+                ordered.put(sku.trim(), new Ordered(sku.trim()));
+            }
+            Ordered currentOrder = ordered.get(sku.trim());
             currentOrder.add();
-            ordered.replace(sku.trim(), currentOrder);
         }
 
         for (Ordered order : ordered.values()) {
             Product product = skuPrices.getOrDefault(order.getSku(), new Product("", 0));
-            total += product.getPrice();
-
-
+            total += product.getOffers().getOrDefault(order.getOrdered(), product.getPrice());
         }
 
         return total;
     }
 }
-
-
-
-
-
