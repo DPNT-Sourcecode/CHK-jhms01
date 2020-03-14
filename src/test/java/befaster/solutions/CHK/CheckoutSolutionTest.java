@@ -25,12 +25,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_return_negative_for_blank_skus() {
-        assertThat(checkoutSolution.checkout(""), is(0));
-    }
-
-    @Test
-    public void should_return_negative_for_invalid_skus() {
-        assertThat(checkoutSolution.checkout("-"), is(-1));
+        assertThat(checkoutSolution.checkout(null), is(-1));
     }
 
     @Test
@@ -45,12 +40,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_checkout_for_sku_b() {
-        assertThat(checkoutSolution.checkout("B"), is(30));
-    }
-
-    @Test
-    public void should_checkout_for_sku_b_with_offers() {
-        assertThat(checkoutSolution.checkout("BB"), is(45));
+        assertThat(checkoutSolution.checkout("B"), is(45));
     }
 
     @Test
@@ -59,42 +49,7 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void should_checkout_for_multiple_sku_a() {
-        assertThat(checkoutSolution.checkout("AA"), is(100));
-    }
-
-    @Test
-    public void should_return_negative_for_unknown_product() {
-        assertThat(checkoutSolution.checkout("a"), is(-1));
-    }
-
-    @Test
     public void should_checkout_for_multiple_skus_of_same_type_no_offers() {
-        assertThat(checkoutSolution.checkout("DD"), is(30));
-    }
-
-    @Test
-    public void should_checkout_for_multiple_skus_of_different_type_no_offers() {
-        assertThat(checkoutSolution.checkout("CD"), is(35));
-    }
-
-    @Test
-    public void should_checkout_for_skus_with_offers() {
-        assertThat(checkoutSolution.checkout("AAA"), is(130));
-    }
-
-    @Test
-    public void should_checkout_for_skus_with_offers_and_no_offers() {
-        assertThat(checkoutSolution.checkout("AAAD"), is(145));
-    }
-
-    @Test
-    public void should_checkout_for_skus_with_multiple_offers() {
-        assertThat(checkoutSolution.checkout("AAABB"), is(175));
-    }
-
-    @Test
-    public void should_checkout_for_all_skus() {
-        assertThat(checkoutSolution.checkout("ABCD"), is(115));
+        assertThat(checkoutSolution.checkout("D, D"), is(30));
     }
 }
