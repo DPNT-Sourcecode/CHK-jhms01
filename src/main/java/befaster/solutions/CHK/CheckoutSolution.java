@@ -39,11 +39,14 @@ public class CheckoutSolution {
         for (Ordered order : ordered.values()) {
             Product product = skuPrices.getOrDefault(order.getSku(), new Product("", 0));
             total += product.getPrice();
+
+
         }
 
         return total;
     }
 }
+
 
 
 
