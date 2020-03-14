@@ -5,13 +5,13 @@ import java.util.Map;
 import java.util.Objects;
 
 public class CheckoutSolution {
-    private Map<String, Integer> skuPrices = new Hashtable<>();
+    private Map<String, Product> skuPrices = new Hashtable<>();
 
     public CheckoutSolution() {
-        skuPrices.put("A", 50);
-        skuPrices.put("B", 45);
-        skuPrices.put("C", 20);
-        skuPrices.put("D", 15);
+        skuPrices.put("A", new Product("A", 50));
+        skuPrices.put("B", new Product("B", 45));
+        skuPrices.put("C", new Product("C", 20));
+        skuPrices.put("D", new Product("D", 15));
     }
 
     public Integer checkout(String skus) {
@@ -22,10 +22,11 @@ public class CheckoutSolution {
 
         String[] skusList = skus.split(",");
         for (String sku : skusList) {
-            total += skuPrices.getOrDefault(sku.trim(), 0);
+            total += skuPrices.getOrDefault(sku.trim(), new Product("", 0)).getPrice();
         }
 
         return total;
     }
 }
+
 
