@@ -29,6 +29,11 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void should_return_negative_for_invalid_skus() {
+        assertThat(checkoutSolution.checkout("-"), is(-1));
+    }
+
+    @Test
     public void should_checkout_for_sku_d() {
         assertThat(checkoutSolution.checkout("D"), is(15));
     }
@@ -51,6 +56,11 @@ public class CheckoutSolutionTest {
     @Test
     public void should_checkout_for_sku_a() {
         assertThat(checkoutSolution.checkout("A"), is(50));
+    }
+
+    @Test
+    public void should_return_negative_for_unknown_product() {
+        assertThat(checkoutSolution.checkout("a"), is(-1));
     }
 
     @Test
@@ -78,4 +88,5 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("A,A,A,B,B"), is(175));
     }
 }
+
 
