@@ -42,4 +42,3 @@ public class Product {
         return offers.getOrDefault(ordered, ordered * price);
     }
 }
-
