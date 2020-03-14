@@ -9,7 +9,7 @@ public class CheckoutSolution {
 
     public CheckoutSolution() {
         skuPrices.put("A", new Product("A", 50).offer(3, 130));
-        skuPrices.put("B", new Product("B", 45).offer(2, 45));
+        skuPrices.put("B", new Product("B", 30).offer(2, 45));
         skuPrices.put("C", new Product("C", 20));
         skuPrices.put("D", new Product("D", 15));
     }
@@ -35,6 +35,7 @@ public class CheckoutSolution {
         }).sum();
     }
 }
+
 
 
 
