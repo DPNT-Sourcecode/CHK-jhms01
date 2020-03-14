@@ -15,7 +15,7 @@ public class CheckoutSolution {
     }
 
     public Integer checkout(String skus) {
-        if (Objects.isNull(skus)) {
+        if (Objects.isNull(skus) || skus.equalsIgnoreCase("-")) {
             return -1;
         }
 
@@ -35,6 +35,7 @@ public class CheckoutSolution {
         }).sum();
     }
 }
+
 
 
 
