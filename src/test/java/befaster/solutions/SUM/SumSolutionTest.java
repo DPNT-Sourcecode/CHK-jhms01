@@ -11,7 +11,6 @@ public class SumSolutionTest {
 
     @Before
     public void setUp() {
-
         sum = new SumSolution();
     }
 
@@ -20,3 +19,4 @@ public class SumSolutionTest {
         assertThat(sum.compute(1, 1), equalTo(2));
     }
 }
+
