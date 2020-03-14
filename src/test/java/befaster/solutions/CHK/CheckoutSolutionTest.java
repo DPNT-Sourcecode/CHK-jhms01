@@ -40,7 +40,12 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_checkout_for_sku_b() {
-        assertThat(checkoutSolution.checkout("B"), is(45));
+        assertThat(checkoutSolution.checkout("B"), is(30));
+    }
+
+    @Test
+    public void should_checkout_for_sku_b_with_offers() {
+        assertThat(checkoutSolution.checkout("B,B"), is(45));
     }
 
     @Test
@@ -73,3 +78,4 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("A,A,A,B,B"), is(175));
     }
 }
+
