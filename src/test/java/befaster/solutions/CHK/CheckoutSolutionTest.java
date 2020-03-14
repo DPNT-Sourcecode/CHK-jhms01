@@ -50,12 +50,17 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_checkout_for_sku_b_with_offers() {
-        assertThat(checkoutSolution.checkout("B,B"), is(45));
+        assertThat(checkoutSolution.checkout("BB"), is(45));
     }
 
     @Test
     public void should_checkout_for_sku_a() {
         assertThat(checkoutSolution.checkout("A"), is(50));
+    }
+
+    @Test
+    public void should_checkout_for_multiple_sku_a() {
+        assertThat(checkoutSolution.checkout("AA"), is(100));
     }
 
     @Test
@@ -65,26 +70,26 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_checkout_for_multiple_skus_of_same_type_no_offers() {
-        assertThat(checkoutSolution.checkout("D, D"), is(30));
+        assertThat(checkoutSolution.checkout("DD"), is(30));
     }
 
     @Test
     public void should_checkout_for_multiple_skus_of_different_type_no_offers() {
-        assertThat(checkoutSolution.checkout("C, D"), is(35));
+        assertThat(checkoutSolution.checkout("CD"), is(35));
     }
 
     @Test
     public void should_checkout_for_skus_with_offers() {
-        assertThat(checkoutSolution.checkout("A,A,A"), is(130));
+        assertThat(checkoutSolution.checkout("AAA"), is(130));
     }
 
     @Test
     public void should_checkout_for_skus_with_offers_and_no_offers() {
-        assertThat(checkoutSolution.checkout("A,A,A,D"), is(145));
+        assertThat(checkoutSolution.checkout("AAAD"), is(145));
     }
 
     @Test
     public void should_checkout_for_skus_with_multiple_offers() {
-        assertThat(checkoutSolution.checkout("A,A,A,B,B"), is(175));
+        assertThat(checkoutSolution.checkout("AAABB"), is(175));
     }
 }
