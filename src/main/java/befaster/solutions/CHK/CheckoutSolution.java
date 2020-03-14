@@ -40,7 +40,7 @@ public class CheckoutSolution {
 
         for (Ordered order : ordered.values()) {
             Product product = skuPrices.getOrDefault(order.getSku(), new Product("", 0));
-            total += product.getOffers().getOrDefault(order.getOrdered(), product.getPrice());
+            total += product.calculateProductTotal(order.getOrdered());
         }
 
         return total;

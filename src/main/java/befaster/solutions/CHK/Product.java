@@ -40,4 +40,8 @@ public class Product {
     public void setOffers(Map<Integer, Integer> offers) {
         this.offers = offers;
     }
+
+    public int calculateProductTotal(int ordered) {
+        return getOffers().getOrDefault(ordered, ordered * price);
+    }
 }
