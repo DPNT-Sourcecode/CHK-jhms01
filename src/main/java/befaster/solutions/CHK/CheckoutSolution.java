@@ -15,12 +15,11 @@ public class CheckoutSolution {
     }
 
     public Integer checkout(String skus) {
-        Map<String, Ordered> ordered = new Hashtable<>();
-        int total = 0;
         if (Objects.isNull(skus) || skus.length() == 0) {
             return -1;
         }
 
+        Map<String, Ordered> ordered = new Hashtable<>();
         String[] skusList = skus.split(",");
         for (String sku : skusList) {
             if (!ordered.containsKey(sku.trim())) {
@@ -30,12 +29,11 @@ public class CheckoutSolution {
             currentOrder.add();
         }
 
-        for (Ordered order : ordered.values()) {
-            Product product = skuPrices.getOrDefault(order.getSku(), new Product("", 0));
-            total += product.calculateProductTotal(order.getOrdered());
-        }
-
-        return total;
+        return ordered.values().stream().mapToInt(o -> {
+            Product product = skuPrices.getOrDefault(o.getSku(), new Product("", 0));
+            return product.calculateProductTotal(o.getOrdered());
+        }).sum();
     }
 }
+
 
